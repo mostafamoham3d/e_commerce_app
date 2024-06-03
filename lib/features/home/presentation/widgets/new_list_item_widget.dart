@@ -3,9 +3,9 @@ import 'package:gap/gap.dart';
 
 import '../../../../core/images/assets.dart';
 
-class SaleListItemWidget extends StatelessWidget {
+class NewListItemWidget extends StatelessWidget {
   final BoxConstraints constraints;
-  const SaleListItemWidget({
+  const NewListItemWidget({
     super.key,
     required this.constraints,
   });
@@ -66,25 +66,12 @@ class SaleListItemWidget extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const Row(
-                children: [
-                  Text(
-                    '15\$',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 16,
-                      decoration: TextDecoration.lineThrough,
-                    ),
-                  ),
-                  Gap(10),
-                  Text(
-                    '12\$',
-                    style: TextStyle(
-                      color: Colors.redAccent,
-                      fontSize: 16,
-                    ),
-                  ),
-                ],
+              const Text(
+                '25\$',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                ),
               )
             ],
           ),
@@ -101,10 +88,10 @@ class SaleListItemWidget extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: Colors.redAccent,
+              color: Colors.black,
             ),
             child: const Text(
-              '-20%',
+              'New',
               style: TextStyle(
                 color: Colors.white,
               ),

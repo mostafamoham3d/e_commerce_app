@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SaleHeaderWidget extends StatelessWidget {
-  const SaleHeaderWidget({
+class NewHeaderWidget extends StatelessWidget {
+  const NewHeaderWidget({
     super.key,
   });
 
@@ -21,7 +21,7 @@ class SaleHeaderWidget extends StatelessWidget {
           ),
         ),
         title: Text(
-          'Sale',
+          'New',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 32,

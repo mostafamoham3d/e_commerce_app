@@ -1,9 +1,9 @@
+import 'package:e_commerce_app/features/home/presentation/widgets/new_list_item_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'sale_list_item_widget.dart';
 
-class SaleItemsListView extends StatelessWidget {
-  const SaleItemsListView({
+class NewItemsListView extends StatelessWidget {
+  const NewItemsListView({
     super.key,
   });
 
@@ -20,7 +20,7 @@ class SaleItemsListView extends StatelessWidget {
           ),
           width: 200,
           child: LayoutBuilder(builder: (context, constraints) {
-            return SaleListItemWidget(
+            return NewListItemWidget(
               constraints: constraints,
             );
           }),

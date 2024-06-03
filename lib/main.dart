@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/features/home/presentation/views/bottom_nav_view.dart';
+import 'package:e_commerce_app/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.rubik().fontFamily,
         useMaterial3: true,
       ),
-      home: const BottomNavView(),
+      home: const HomeView(),
     );
   }
 }
