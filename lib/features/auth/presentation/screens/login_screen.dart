@@ -4,6 +4,7 @@ import 'package:e_commerce_app/features/auth/presentation/widgets/screen_title.d
 import 'package:flutter/material.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
+import '../../../home/presentation/views/bottom_nav_view.dart';
 import '../../../home/presentation/views/home_view.dart';
 import '../widgets/bottom_actions.dart';
 import '../widgets/custom_button.dart';
@@ -74,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   if (formKey.currentState!.validate()) {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => const HomeView(),
+                        builder: (context) => const BottomNavView(),
                       ),
                     );
                   }

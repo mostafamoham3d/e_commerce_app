@@ -40,6 +40,9 @@ dependencies:
   gap: ^3.0.1
   flutter_screenutil: ^5.9.3
   form_builder_validators: ^10.0.1
+  carousel_slider: ^4.2.1
+  flutter_hooks_bloc: ^0.17.0
+  flutter_rating_bar: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -86,4 +89,7 @@ flutter:
         - asset: assets/fonts/Metropolis-Bold.otf
         - asset: assets/fonts/Metropolis-Thin.otf
 
-
+flutter_assets:
+  assets_path: assets/
+  output_path: lib/core/images/
+  filename: assets.dart

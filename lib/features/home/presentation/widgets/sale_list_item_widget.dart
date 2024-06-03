@@ -1,7 +1,12 @@
+import 'package:e_commerce_app/core/utils/app_colors.dart';
+import 'package:e_commerce_app/features/home/presentation/widgets/toggle_product_favorite_btn.dart';
+import 'package:e_commerce_app/features/product_details/presenation/widgets/product_rating_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../../../../core/images/assets.dart';
+import '../../../product_details/presenation/data/models/product_model.dart';
+import '../../../product_details/presenation/views/product_details_view.dart';
 
 class SaleListItemWidget extends StatelessWidget {
   final BoxConstraints constraints;
@@ -14,79 +19,88 @@ class SaleListItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Align(
-          alignment: Alignment.topCenter,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                clipBehavior: Clip.antiAlias,
-                height: constraints.maxHeight * .65,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  image: const DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage(
-                      Assets.assetsImagesSmallbanner,
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(
-                  top: 6,
-                ),
-                width: 140,
-                child: Row(
-                  children: [
-                    for (int i = 0; i < 5; i++)
-                      const Icon(
-                        Icons.star,
-                        color: Colors.orangeAccent,
-                        size: 18,
-                      ),
-                    const Text(
-                      '(10)',
-                      style: TextStyle(color: Colors.grey),
-                    )
+        GestureDetector(
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => ProductDetailsView(
+                productModel: ProductModel(
+                  title: 'Short dress',
+                  description:
+                      'Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.',
+                  price: 20.0,
+                  ratings: 4.5,
+                  image: Assets.assetsImagesSmallbanner,
+                  category: 'Women',
+                  sizes: [
+                    'S',
+                    'M',
+                    'L',
+                    'XL',
+                  ],
+                  colors: [
+                    Colors.black,
+                    Colors.grey,
+                    Colors.white,
                   ],
                 ),
               ),
-              const Text(
-                'Dorothy Perkins',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12,
-                ),
-              ),
-              const Text(
-                'Evening Dress',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const Row(
-                children: [
-                  Text(
-                    '15\$',
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 16,
-                      decoration: TextDecoration.lineThrough,
+            ),
+          ),
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  clipBehavior: Clip.antiAlias,
+                  height: constraints.maxHeight * .65,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    image: const DecorationImage(
+                      fit: BoxFit.fill,
+                      image: AssetImage(
+                        Assets.assetsImagesSmallbanner,
+                      ),
                     ),
                   ),
-                  Gap(10),
-                  Text(
-                    '12\$',
-                    style: TextStyle(
-                      color: Colors.redAccent,
-                      fontSize: 16,
-                    ),
+                ),
+                const ProductRatingWidget(),
+                const Text(
+                  'Dorothy Perkins',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 12,
                   ),
-                ],
-              )
-            ],
+                ),
+                const Text(
+                  'Evening Dress',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Row(
+                  children: [
+                    Text(
+                      '15\$',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 16,
+                        decoration: TextDecoration.lineThrough,
+                      ),
+                    ),
+                    Gap(10),
+                    Text(
+                      '12\$',
+                      style: TextStyle(
+                        color: AppColors.mainColor,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
         Padding(
@@ -101,7 +115,7 @@ class SaleListItemWidget extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: Colors.redAccent,
+              color: AppColors.mainColor,
             ),
             child: const Text(
               '-20%',
@@ -114,26 +128,7 @@ class SaleListItemWidget extends StatelessWidget {
         Positioned(
           top: constraints.maxHeight * .58,
           right: 0,
-          child: Container(
-            alignment: Alignment.center,
-            height: constraints.maxHeight * .125,
-            width: constraints.maxHeight * .125,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                  offset: const Offset(0, 3), // changes position of shadow
-                ),
-              ],
-            ),
-            child: const Icon(
-              Icons.favorite_border,
-            ),
-          ),
+          child: ToggleProductFavoriteBtn(size: constraints.maxHeight * .125),
         )
       ],
     );
