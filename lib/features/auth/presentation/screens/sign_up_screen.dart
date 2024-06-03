@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/features/auth/presentation/screens/login_screen.dart';
+import 'package:e_commerce_app/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
@@ -56,16 +57,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
               CustomTextFormField(
                 controller: password,
                 labelText: 'Password',
-                obscureText: true,  validator: FormBuilderValidators.compose([
-                FormBuilderValidators.required(),
-              ]),
+                obscureText: true,
+                validator: FormBuilderValidators.compose([
+                  FormBuilderValidators.required(),
+                ]),
               ),
               CustomTextFormField(
                 controller: rePassword,
                 labelText: 'RePassword',
-                obscureText: true,  validator: FormBuilderValidators.compose([
-                FormBuilderValidators.required(),
-              ]),
+                obscureText: true,
+                validator: FormBuilderValidators.compose([
+                  FormBuilderValidators.required(),
+                ]),
               ),
               ForgotPasswordButton(
                 sentence: 'Already have an account?',
@@ -78,9 +81,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 label: 'SIGN UP',
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
-                    print('UserName: ${email.text}');
-                    print('Password: ${password.text}');
-                    print('Password: ${rePassword.text}');
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => HomeView(),
+                      ),
+                    );
                   }
                 },
               ),

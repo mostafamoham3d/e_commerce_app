@@ -4,6 +4,7 @@ import 'package:e_commerce_app/features/auth/presentation/widgets/screen_title.d
 import 'package:flutter/material.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
+import '../../../home/presentation/views/home_view.dart';
 import '../widgets/bottom_actions.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_form_field.dart';
@@ -41,48 +42,52 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
               const ScreenTitle(title: "Login"),
-          CustomTextFormField(
-            controller: email,
-            labelText: 'Email',
-            validator: FormBuilderValidators.compose([
-              FormBuilderValidators.required(),
-              FormBuilderValidators.email(),
-            ]),
+              CustomTextFormField(
+                controller: email,
+                labelText: 'Email',
+                validator: FormBuilderValidators.compose([
+                  FormBuilderValidators.required(),
+                  FormBuilderValidators.email(),
+                ]),
+              ),
+              CustomTextFormField(
+                controller: password,
+                labelText: 'Password',
+                validator: FormBuilderValidators.compose([
+                  FormBuilderValidators.required(),
+                ]),
+                obscureText: true,
+              ),
+              ForgotPasswordButton(
+                sentence: 'Forgot your password?',
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const ForgotPasswordScreen()));
+                },
+              ),
+              CustomButton(
+                label: 'LOGIN',
+                onPressed: () {
+                  if (formKey.currentState!.validate()) {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const HomeView(),
+                      ),
+                    );
+                  }
+                },
+              ),
+              const Expanded(child: SizedBox()),
+              const BottomActions(
+                otherMethodeSentence: 'Or login with social account',
+              ),
+            ],
           ),
-        CustomTextFormField(
-          controller: password,
-          labelText: 'Password',
-          validator: FormBuilderValidators.compose([
-            FormBuilderValidators.required(),
-          ]), obscureText: true,
         ),
-        ForgotPasswordButton(
-          sentence: 'Forgot your password?',
-          onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const ForgotPasswordScreen()));
-          },
-        ),
-        CustomButton(
-          label: 'LOGIN',
-          onPressed: () {
-            if (formKey.currentState!.validate()) {
-              print('UserName: ${email.text}');
-              print('Password: ${password.text}');
-            }
-          },
-        ),
-        const Expanded(child: SizedBox()),
-        const BottomActions(
-          otherMethodeSentence: 'Or login with social account',
-        ),
-        ],
       ),
-    ),)
-    ,
     );
   }
 }
