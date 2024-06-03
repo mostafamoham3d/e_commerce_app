@@ -1,6 +1,6 @@
-import 'package:e_commerce_app/auth/presentation/screens/forgot_password_screen.dart';
-import 'package:e_commerce_app/auth/presentation/widgets/forgot_password_button.dart';
-import 'package:e_commerce_app/auth/presentation/widgets/screen_title.dart';
+import 'package:e_commerce_app/features/auth/presentation/screens/forgot_password_screen.dart';
+import 'package:e_commerce_app/features/auth/presentation/widgets/forgot_password_button.dart';
+import 'package:e_commerce_app/features/auth/presentation/widgets/screen_title.dart';
 import 'package:flutter/material.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 

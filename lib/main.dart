@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/auth/presentation/screens/splash_screen.dart';
+import 'package:e_commerce_app/features/auth/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

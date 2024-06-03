@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/auth/presentation/screens/login_screen.dart';
+import 'package:e_commerce_app/features/auth/presentation/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
