@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/features/auth/presentation/screens/splash_screen.dart';
+import 'package:e_commerce_app/features/shop/presentation/views/shop_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,10 +12,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
+      theme: ThemeData(
+        fontFamily: "Metropolis",
+      ),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: SplashScreen(),
+      home: ShopView(),
     );
   }
 }
