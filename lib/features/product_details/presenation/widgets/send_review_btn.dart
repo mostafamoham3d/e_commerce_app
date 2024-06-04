@@ -21,7 +21,7 @@ class SendReviewBtn extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: AppColors.mainColor.withOpacity(0.5),
-            spreadRadius: 5,
+            spreadRadius: 2,
             blurRadius: 7,
             offset: const Offset(0, 3), // changes position of shadow
           ),
@@ -37,4 +37,3 @@ class SendReviewBtn extends StatelessWidget {
     );
   }
 }
-
