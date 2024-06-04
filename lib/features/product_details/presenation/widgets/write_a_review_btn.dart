@@ -1,9 +1,5 @@
-import 'package:e_commerce_app/core/utils/extensions.dart';
 import 'package:e_commerce_app/features/product_details/presenation/widgets/write_a_review_bottom_sheet.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:gap/gap.dart';
 
 import '../../../../core/utils/app_colors.dart';
 
@@ -25,7 +21,7 @@ class WriteAReviewBtn extends StatelessWidget {
           ),
         ),
         context: context,
-        builder: (context) => WriteAReviewBottomSheet(),
+        builder: (context) => const WriteAReviewBottomSheet(),
       ),
       child: Container(
         width: 175,

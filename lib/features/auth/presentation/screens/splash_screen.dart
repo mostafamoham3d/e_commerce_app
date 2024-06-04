@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/features/auth/presentation/screens/login_screen.dart';
 import 'package:e_commerce_app/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +10,7 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Stack(children: [
-          Container(
+          SizedBox(
               height: MediaQuery.sizeOf(context).height,
               child: Image.asset("assets/images/splash_photo.png",
                   fit: BoxFit.cover)),
@@ -26,7 +25,7 @@ class SplashScreen extends StatelessWidget {
                   style: ElevatedButton.styleFrom(backgroundColor: const Color(0xffDB3022)),
                   child: const Text(
                     "START",
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: Colors.white,
                       fontSize: 34,
                       fontFamily: "Metropolis",

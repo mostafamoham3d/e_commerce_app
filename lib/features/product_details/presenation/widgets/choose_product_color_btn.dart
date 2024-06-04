@@ -1,6 +1,5 @@
-import 'package:e_commerce_app/core/utils/extensions.dart';
+import 'package:e_commerce_app/features/product_details/presenation/widgets/choose_product_color_bottom_sheet.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 
 class ChooseProductColorBtn extends StatelessWidget {
   final List<Color> colors;
@@ -21,54 +20,7 @@ class ChooseProductColorBtn extends StatelessWidget {
           ),
         ),
         context: context,
-        builder: (context) => Container(
-          padding: const EdgeInsets.symmetric(
-            vertical: 18,
-            horizontal: 14,
-          ),
-          clipBehavior: Clip.antiAlias,
-          height: 200,
-          width: context.width,
-          decoration: const BoxDecoration(),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text(
-                'Select color',
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 18,
-                ),
-              ),
-              const Gap(15),
-              Wrap(
-                children: colors
-                    .map(
-                      (color) => Container(
-                        margin: const EdgeInsets.symmetric(
-                          vertical: 4,
-                          horizontal: 8,
-                        ),
-                        alignment: Alignment.center,
-                        width: 50,
-                        height: 50,
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: color,
-                          //sborderRadius: BorderRadius.circular(12),
-                          border: Border.all(
-                            width: 1,
-                            color: Colors.grey,
-                          ),
-                        ),
-                      ),
-                    )
-                    .toList(),
-              ),
-            ],
-          ),
-        ),
+        builder: (context) => ChooseProductColorBottomSheet(colors: colors),
       ),
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 8),
@@ -97,3 +49,4 @@ class ChooseProductColorBtn extends StatelessWidget {
     );
   }
 }
+

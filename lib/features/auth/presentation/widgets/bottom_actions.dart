@@ -18,7 +18,7 @@ class BottomActions extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             )),
-        SizedBox(height: 16,),
+        const SizedBox(height: 16,),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

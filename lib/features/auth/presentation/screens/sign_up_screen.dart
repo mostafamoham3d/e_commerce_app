@@ -1,6 +1,5 @@
 import 'package:e_commerce_app/features/auth/presentation/screens/login_screen.dart';
 import 'package:e_commerce_app/features/home/presentation/views/bottom_nav_view.dart';
-import 'package:e_commerce_app/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
@@ -84,7 +83,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   if (formKey.currentState!.validate()) {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => BottomNavView(),
+                        builder: (context) => const BottomNavView(),
                       ),
                     );
                   }

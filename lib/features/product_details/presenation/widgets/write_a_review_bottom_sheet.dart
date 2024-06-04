@@ -3,10 +3,8 @@ import 'package:e_commerce_app/features/product_details/presenation/widgets/add_
 import 'package:e_commerce_app/features/product_details/presenation/widgets/send_review_btn.dart';
 import 'package:e_commerce_app/features/product_details/presenation/widgets/write_a_review_text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:gap/gap.dart';
 
-import '../../../../core/utils/app_colors.dart';
 import 'add_rating_to_product_widget.dart';
 
 class WriteAReviewBottomSheet extends StatelessWidget {

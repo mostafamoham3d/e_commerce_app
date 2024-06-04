@@ -1,9 +1,11 @@
 import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/extensions.dart';
+import 'package:e_commerce_app/features/product_details/presenation/widgets/reviews_list_view_widget.dart';
+import 'package:e_commerce_app/features/product_details/presenation/widgets/show_photo_in_reviews_check_box.dart';
 import 'package:e_commerce_app/features/product_details/presenation/widgets/write_a_review_btn.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
+
 
 class RatingsAndReviewsView extends StatelessWidget {
   const RatingsAndReviewsView({super.key});
@@ -15,7 +17,7 @@ class RatingsAndReviewsView extends StatelessWidget {
         centerTitle: true,
         title: const Text("Ratings and Reviews"),
       ),
-      floatingActionButton: WriteAReviewBtn(),
+      floatingActionButton: const WriteAReviewBtn(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(
@@ -77,11 +79,11 @@ class RatingsAndReviewsView extends StatelessWidget {
                 ),
               ),
               const Gap(10),
-              Row(
+              const Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Row(
+                  Row(
                     children: [
                       Text(
                         '8 Reviews',
@@ -92,17 +94,10 @@ class RatingsAndReviewsView extends StatelessWidget {
                       )
                     ],
                   ),
-                  Row(
-                    children: [
-                      Checkbox(
-                        value: false,
-                        onChanged: (value) {},
-                      ),
-                      const Text('With photo'),
-                    ],
-                  ),
+                  ShowPhotoInReviewsCheckBox(),
                 ],
               ),
+              const ReviewsListViewWidget(),
             ],
           ),
         ),
@@ -110,8 +105,6 @@ class RatingsAndReviewsView extends StatelessWidget {
     );
   }
 }
-
-
 
 class RatingsBuilder extends StatelessWidget {
   final int rating;

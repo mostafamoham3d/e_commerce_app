@@ -13,9 +13,14 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        body: NestedScrollView(
+      headerSliverBuilder: (context, innerBoxIsScrolled) {
+        return [
+          const CustomSliverAppBar(),
+        ];
+      },
       body: CustomScrollView(
         slivers: [
-          const CustomSliverAppBar(),
           const SliverToBoxAdapter(
             child: SaleHeaderWidget(),
           ),
@@ -42,6 +47,6 @@ class HomeView extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ));
   }
 }

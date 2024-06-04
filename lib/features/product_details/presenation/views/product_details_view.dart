@@ -1,5 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:e_commerce_app/core/utils/app_colors.dart';
 import 'package:e_commerce_app/core/utils/extensions.dart';
 import 'package:e_commerce_app/features/home/presentation/widgets/toggle_product_favorite_btn.dart';
 import 'package:e_commerce_app/features/product_details/presenation/data/models/product_model.dart';
@@ -9,10 +7,8 @@ import 'package:e_commerce_app/features/product_details/presenation/widgets/prod
 import 'package:e_commerce_app/features/product_details/presenation/widgets/product_rating_widget.dart';
 import 'package:e_commerce_app/features/product_details/presenation/widgets/product_title_and_price_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 
-import '../../../home/presentation/widgets/new_header_widget.dart';
 import '../../../home/presentation/widgets/new_items_list_view.dart';
 import '../widgets/add_to_cart_btn.dart';
 

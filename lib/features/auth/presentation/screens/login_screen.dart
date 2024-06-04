@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
 import '../../../home/presentation/views/bottom_nav_view.dart';
-import '../../../home/presentation/views/home_view.dart';
 import '../widgets/bottom_actions.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_form_field.dart';
