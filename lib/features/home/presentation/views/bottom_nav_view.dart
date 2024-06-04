@@ -1,21 +1,32 @@
 import 'package:e_commerce_app/features/home/presentation/views/home_view.dart';
+import 'package:e_commerce_app/features/shop/presentation/views/shop_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../../core/utils/app_colors.dart';
 
-class BottomNavView extends StatelessWidget {
+class BottomNavView extends HookWidget {
+  static List<Widget> screens = [
+    const HomeView(),
+    const ShopView(),
+    Container(),
+    Container(),
+    Container(),
+  ];
   const BottomNavView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    ValueNotifier<int> index = useState(0);
     return Scaffold(
-      body: const HomeView(),
+      body: screens[index.value],
       bottomNavigationBar: BottomNavigationBar(
+        onTap: (value) => index.value = value,
         type: BottomNavigationBarType.fixed,
         selectedItemColor: AppColors.mainColor,
         unselectedItemColor: Colors.black,
         unselectedLabelStyle: const TextStyle(color: Colors.black),
-        currentIndex: 0,
+        currentIndex: index.value,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
