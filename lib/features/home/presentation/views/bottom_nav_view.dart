@@ -1,5 +1,7 @@
 import 'package:e_commerce_app/features/cart/presentation/views/cart_view.dart';
+import 'package:e_commerce_app/features/favorite/presentation/views/favorite_view.dart';
 import 'package:e_commerce_app/features/home/presentation/views/home_view.dart';
+import 'package:e_commerce_app/features/profile/views/profile_view.dart';
 import 'package:e_commerce_app/features/shop/presentation/views/shop_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -7,12 +9,12 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import '../../../../core/utils/app_colors.dart';
 
 class BottomNavView extends HookWidget {
-  static List<Widget> screens = [
-    const HomeView(),
-    const ShopView(),
-    const CartView(),
-    Container(),
-    Container(),
+  static List<Widget> screens = const [
+    HomeView(),
+    ShopView(),
+    CartView(),
+    FavoriteView(),
+    ProfileView(),
   ];
   const BottomNavView({super.key});
 

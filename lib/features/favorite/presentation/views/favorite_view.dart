@@ -11,7 +11,7 @@ class FavoriteView extends StatefulWidget {
 }
 
 class _FavoriteViewState extends State<FavoriteView> {
-  List<String> categoryOfTops = ["Summer" ,"T-shirts", "Blouses", "Shirts"];
+  List<String> categoryOfTops = ["Summer", "T-shirts", "Blouses", "Shirts"];
   List<String> sortTypes = [
     "Popular",
     "Newest",
@@ -39,8 +39,7 @@ class _FavoriteViewState extends State<FavoriteView> {
         centerTitle: true,
         actions: [
           IconButton(
-              onPressed: () {
-              },
+              onPressed: () {},
               icon: const Icon(
                 Icons.search,
                 color: Colors.black,
@@ -66,7 +65,7 @@ class _FavoriteViewState extends State<FavoriteView> {
                           itemBuilder: (context, index) {
                             return Padding(
                               padding:
-                              const EdgeInsets.symmetric(horizontal: 4),
+                                  const EdgeInsets.symmetric(horizontal: 4),
                               child: GestureDetector(
                                 onTap: () {},
                                 child: Container(
@@ -129,13 +128,13 @@ class _FavoriteViewState extends State<FavoriteView> {
                                   children: <Widget>[
                                     Center(
                                         child: Container(
-                                          width: 60,
-                                          height: 6,
-                                          decoration: BoxDecoration(
-                                              borderRadius:
+                                      width: 60,
+                                      height: 6,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
                                               BorderRadius.circular(10),
-                                              color: const Color(0xff9B9B9B)),
-                                        )),
+                                          color: const Color(0xff9B9B9B)),
+                                    )),
                                     const SizedBox(
                                       height: 16,
                                     ),
@@ -169,9 +168,7 @@ class _FavoriteViewState extends State<FavoriteView> {
                                               ),
                                             ),
                                             onTap: () {
-                                              setState(() {
-
-                                              });
+                                              setState(() {});
                                               chosenSortType = sortTypes[index];
                                               Navigator.pop(context);
                                             },
@@ -202,13 +199,13 @@ class _FavoriteViewState extends State<FavoriteView> {
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     gridDelegate:
-                    const SliverGridDelegateWithFixedCrossAxisCount(
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       mainAxisSpacing: 10,
                       crossAxisSpacing: 10,
                       childAspectRatio: 0.6,
                     ),
-                    itemCount: 4,
+                    itemCount: 8,
                     itemBuilder: (context, index) {
                       return Container(
                           margin: const EdgeInsets.symmetric(
