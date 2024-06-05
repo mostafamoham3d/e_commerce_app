@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/features/auth/presentation/screens/splash_screen.dart';
 import 'package:e_commerce_app/features/favorite/presentation/views/favorite_view.dart';
+import 'package:e_commerce_app/features/filter/presenation/controllers/cubit/filter_cubit.dart';
 import 'package:e_commerce_app/features/profile/views/profile_view.dart';
 import 'package:e_commerce_app/features/cart/presentation/controllers/cubit/cart_cubit.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => CartCubit(),
         ),
-      
+      BlocProvider(
+          create: (context) => FilterCubit(),
+        ),
       ],
       child: MaterialApp(
         theme: ThemeData(

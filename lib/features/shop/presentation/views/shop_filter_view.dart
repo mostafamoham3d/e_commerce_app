@@ -1,6 +1,8 @@
+import 'package:e_commerce_app/features/filter/presenation/controllers/cubit/filter_cubit.dart';
 import 'package:e_commerce_app/features/shop/presentation/widgets/shop_filter_widgets/custom_bottom_sheet.dart';
 import 'package:e_commerce_app/features/shop/presentation/widgets/shop_filter_widgets/custom_list_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 import '../widgets/shop_filter_widgets/custom_title.dart';
@@ -16,7 +18,7 @@ class _ShopFilterViewState extends State<ShopFilterView> {
   SfRangeValues _values = const SfRangeValues(40.0, 170.0);
 
   List<int> colorsName = [
-    0xff020202,
+    Colors.black.value,
     0xffF6F6F6,
     0xffB82222,
     0xffBEA9A9,
@@ -71,7 +73,7 @@ class _ShopFilterViewState extends State<ShopFilterView> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const CustomTitle(title:"Price Range"),
+            const CustomTitle(title: "Price Range"),
             Container(
               width: MediaQuery.sizeOf(context).width,
               height: 100,
@@ -95,32 +97,78 @@ class _ShopFilterViewState extends State<ShopFilterView> {
                 },
               ),
             ),
-            const CustomTitle(title:"Colors"),
+            const CustomTitle(title: "Colors"),
             Container(
               height: 100,
               width: MediaQuery.sizeOf(context).width,
               decoration: const BoxDecoration(
                 color: Colors.white,
               ),
-              child: ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
-                  shrinkWrap: true,
-                  itemCount: colorsName.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.only(left: 28),
-                      child: Container(
-                        height: 36,
-                        width: 36,
-                        decoration: BoxDecoration(
-                            color: Color(colorsName[index]),
-                            shape: BoxShape.circle),
-                      ),
-                    );
-                  }),
+              child: BlocBuilder<FilterCubit, FilterState>(
+                builder: (context, state) {
+                  return ListView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      itemCount: colorsName.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(left: 28),
+                          child: GestureDetector(
+                            onTap: () {
+                              if (context
+                                  .read<FilterCubit>()
+                                  .colorsFilterList
+                                  .contains(
+                                    Color(
+                                      colorsName[index],
+                                    ),
+                                  )) {
+                                context
+                                    .read<FilterCubit>()
+                                    .removeFromColorFilterList(
+                                      Color(
+                                        colorsName[index],
+                                      ),
+                                    );
+                              } else {
+                                context
+                                    .read<FilterCubit>()
+                                    .addToColorFilterList(
+                                      Color(
+                                        colorsName[index],
+                                      ),
+                                    );
+                              }
+                            },
+                            child: Container(
+                              height: 36,
+                              width: 36,
+                              decoration: BoxDecoration(
+                                color: Color(colorsName[index]),
+                                shape: BoxShape.circle,
+                              ),
+                              child: context
+                                      .read<FilterCubit>()
+                                      .colorsFilterList
+                                      .contains(
+                                        Color(
+                                          colorsName[index],
+                                        ),
+                                      )
+                                  ? const Icon(
+                                      Icons.check,
+                                      color: Colors.white,
+                                    )
+                                  : null,
+                            ),
+                          ),
+                        );
+                      });
+                },
+              ),
             ),
-            const CustomTitle(title:"Sizes"),
+            const CustomTitle(title: "Sizes"),
             Container(
               height: 100,
               width: MediaQuery.sizeOf(context).width,
@@ -157,16 +205,16 @@ class _ShopFilterViewState extends State<ShopFilterView> {
                     );
                   }),
             ),
-            const CustomTitle(title:"Category"),
+            const CustomTitle(title: "Category"),
             Container(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               height: 150,
               width: MediaQuery.sizeOf(context).width,
               decoration: const BoxDecoration(
                 color: Colors.white,
               ),
               child: GridView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     childAspectRatio: 2.5,
@@ -198,7 +246,9 @@ class _ShopFilterViewState extends State<ShopFilterView> {
               ),
             ),
             const CustomListTile(),
-            const SizedBox(height: 104,),
+            const SizedBox(
+              height: 104,
+            ),
           ],
         ),
       ),

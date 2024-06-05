@@ -1,6 +1,10 @@
+import 'package:e_commerce_app/core/images/assets.dart';
+import 'package:e_commerce_app/features/filter/presenation/controllers/cubit/filter_cubit.dart';
+import 'package:e_commerce_app/features/product_details/presenation/data/models/product_model.dart';
 import 'package:e_commerce_app/features/shop/presentation/views/shop_filter_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../home/presentation/widgets/sale_list_item_widget.dart';
 
 class SubcategoryView extends StatefulWidget {
@@ -19,7 +23,162 @@ class _SubcategoryViewState extends State<SubcategoryView> {
     "Price: lowest to high",
     "Price: highest to low"
   ];
-
+  List<ProductModel> products = [
+    ProductModel(
+      title: 'Short dress',
+      description:
+          'Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.',
+      price: 20.0,
+      ratings: 4.5,
+      image: Assets.assetsImagesSmallbanner,
+      category: 'Women',
+      sizes: [
+        'S',
+        'M',
+        'L',
+        'XL',
+      ],
+      colors: [
+        Colors.black,
+        Colors.grey,
+        Colors.white,
+      ],
+    ),
+    ProductModel(
+      title: 'Short dress',
+      description:
+          'Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.',
+      price: 20.0,
+      ratings: 4.5,
+      image: Assets.assetsImagesSmallbanner,
+      category: 'Women',
+      sizes: [
+        'S',
+        'M',
+        'L',
+        'XL',
+      ],
+      colors: [
+        Colors.grey,
+        Colors.white,
+      ],
+    ),
+    ProductModel(
+      title: 'Short dress',
+      description:
+          'Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.',
+      price: 20.0,
+      ratings: 4.5,
+      image: Assets.assetsImagesSmallbanner,
+      category: 'Women',
+      sizes: [
+        'S',
+        'M',
+        'L',
+        'XL',
+      ],
+      colors: [
+        Colors.grey,
+        Colors.white,
+      ],
+    ),
+    ProductModel(
+      title: 'Short dress',
+      description:
+          'Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.',
+      price: 20.0,
+      ratings: 4.5,
+      image: Assets.assetsImagesSmallbanner,
+      category: 'Women',
+      sizes: [
+        'S',
+        'M',
+        'L',
+        'XL',
+      ],
+      colors: [
+        Colors.grey,
+        Colors.white,
+      ],
+    ),
+    ProductModel(
+      title: 'Short dress',
+      description:
+          'Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.',
+      price: 20.0,
+      ratings: 4.5,
+      image: Assets.assetsImagesSmallbanner,
+      category: 'Women',
+      sizes: [
+        'S',
+        'M',
+        'L',
+        'XL',
+      ],
+      colors: [
+        Colors.grey,
+        Colors.white,
+      ],
+    ),
+    ProductModel(
+      title: 'Short dress',
+      description:
+          'Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.',
+      price: 20.0,
+      ratings: 4.5,
+      image: Assets.assetsImagesSmallbanner,
+      category: 'Women',
+      sizes: [
+        'S',
+        'M',
+        'L',
+        'XL',
+      ],
+      colors: [
+        Colors.grey,
+        Colors.white,
+      ],
+    ),
+    ProductModel(
+      title: 'Short dress',
+      description:
+          'Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.',
+      price: 20.0,
+      ratings: 4.5,
+      image: Assets.assetsImagesSmallbanner,
+      category: 'Women',
+      sizes: [
+        'S',
+        'M',
+        'L',
+        'XL',
+      ],
+      colors: [
+        Colors.grey,
+        Colors.white,
+      ],
+    ),
+    ProductModel(
+      title: 'Short dress',
+      description:
+          'Short dress in soft cotton jersey with decorative buttons down the front and a wide, frill-trimmed square neckline with concealed elastication. Elasticated seam under the bust and short puff sleeves with a small frill trim.',
+      price: 20.0,
+      ratings: 4.5,
+      image: Assets.assetsImagesSmallbanner,
+      category: 'Women',
+      sizes: [
+        'S',
+        'M',
+        'L',
+        'XL',
+      ],
+      colors: [
+        Colors.black,
+        Colors.grey,
+        Colors.white,
+      ],
+    ),
+  ];
   String chosenSortType = "Price: lowest to high";
 
   @override
@@ -180,9 +339,7 @@ class _SubcategoryViewState extends State<SubcategoryView> {
                                               ),
                                             ),
                                             onTap: () {
-                                              setState(() {
-
-                                              });
+                                              setState(() {});
                                               chosenSortType = sortTypes[index];
                                               Navigator.pop(context);
                                             },
@@ -209,30 +366,53 @@ class _SubcategoryViewState extends State<SubcategoryView> {
                         icon: const Icon(Icons.grid_on_outlined))
                   ],
                 ),
-                GridView.builder(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 10,
-                      crossAxisSpacing: 10,
-                      childAspectRatio: 0.6,
-                    ),
-                    itemCount: 4,
-                    itemBuilder: (context, index) {
-                      return Container(
-                          margin: const EdgeInsets.symmetric(
-                            horizontal: 16,
-                          ),
-                          width: MediaQuery.sizeOf(context).width / 2,
-                          height: MediaQuery.sizeOf(context).height / 2,
-                          child: LayoutBuilder(builder: (context, constraints) {
-                            return SaleListItemWidget(
-                              constraints: constraints,
-                            );
-                          }));
-                    })
+                BlocBuilder<FilterCubit, FilterState>(
+                  builder: (context, state) {
+                    List<ProductModel> temp = products;
+                    if (context
+                        .read<FilterCubit>()
+                        .colorsFilterList
+                        .isNotEmpty) {
+                      temp = products
+                          .where(
+                            (element) => element.colors.contains(
+                              context
+                                  .read<FilterCubit>()
+                                  .colorsFilterList
+                                  .first,
+                            ),
+                          )
+                          .toList();
+                    } else {
+                      temp = products;
+                    }
+                    return GridView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 10,
+                          crossAxisSpacing: 10,
+                          childAspectRatio: 0.6,
+                        ),
+                        itemCount: temp.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                              ),
+                              width: MediaQuery.sizeOf(context).width / 2,
+                              height: MediaQuery.sizeOf(context).height / 2,
+                              child: LayoutBuilder(
+                                  builder: (context, constraints) {
+                                return SaleListItemWidget(
+                                  constraints: constraints,
+                                );
+                              }));
+                        });
+                  },
+                )
               ],
             ),
           ],
