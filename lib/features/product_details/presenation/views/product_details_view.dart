@@ -34,7 +34,9 @@ class ProductDetailsView extends StatelessWidget {
         ],
         title: Text(productModel.title),
       ),
-      bottomSheet: const AddToCartBtn(),
+      bottomSheet:  AddToCartBtn(
+        productModel: productModel,
+      ),
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
