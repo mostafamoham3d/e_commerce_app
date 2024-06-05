@@ -1,4 +1,6 @@
 import 'package:e_commerce_app/features/auth/presentation/screens/splash_screen.dart';
+import 'package:e_commerce_app/features/favorite/presentation/views/favorite_view.dart';
+import 'package:e_commerce_app/features/profile/views/profile_view.dart';
 import 'package:e_commerce_app/features/shop/presentation/views/shop_view.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: const SplashScreen(),
+      home: const ProfileView(),
     );
   }
 }
