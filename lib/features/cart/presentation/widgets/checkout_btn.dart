@@ -1,21 +1,20 @@
-import 'package:e_commerce_app/features/cart/presentation/controllers/cubit/cart_cubit.dart';
-import 'package:e_commerce_app/features/product_details/presenation/data/models/product_model.dart';
+import 'package:e_commerce_app/core/utils/extensions.dart';
+import 'package:e_commerce_app/features/checkout/presenation/views/checkout_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/utils/app_colors.dart';
 
-class AddToCartBtn extends StatelessWidget {
-  final ProductModel productModel;
-  const AddToCartBtn({
+class CheckoutBtn extends StatelessWidget {
+  const CheckoutBtn({
     super.key,
-    required this.productModel,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.read<CartCubit>().addToCart(productModel),
+      onTap: () => context.push(
+        const CheckoutView(),
+      ),
       child: Container(
         margin: const EdgeInsets.symmetric(
           horizontal: 16,
@@ -36,7 +35,7 @@ class AddToCartBtn extends StatelessWidget {
           ],
         ),
         child: const Text(
-          'ADD TO CART',
+          'CHECK OUT',
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.w500,
